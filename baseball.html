@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초록 다이아몬드의 열정, BASEBALL</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepblue: {
+                            50: '#f0f5fa',
+                            100: '#ddebf5',
+                            200: '#c2dcea',
+                            300: '#99c5db',
+                            400: '#68a6ca',
+                            500: '#4689b4',
+                            600: '#346d96',
+                            700: '#2c587a',
+                            800: '#1b364e',
+                            900: '#0b1d30', // Deep Blue Base
+                            950: '#050d18',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #0b1d30;
+            color: #f8fafc;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1d30;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1b364e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4689b4;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden text-slate-100 selection:bg-blue-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-deepblue-950/80 backdrop-blur-md border-b border-deepblue-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#hero" class="flex items-center space-x-2 group">
+                        <i class="fa-solid fa-baseball-bat-ball text-2xl text-gold-400 group-hover:rotate-12 transition-transform duration-300"></i>
+                        <span class="font-extrabold text-xl tracking-wider text-white uppercase">The Baseball</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden md:flex space-x-1 lg:space-x-4">
+                    <a href="#hero" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">첫페이지</a>
+                    <a href="#intro" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">소개페이지</a>
+                    <a href="#rules" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">규칙페이지</a>
+                    <a href="#attraction" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">코어어트랙트 페이지</a>
+                    <a href="#gallery" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">갤러리 페이지</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-deepblue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-deepblue-900 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">메뉴 열기</span>
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-deepblue-900 border-b border-deepblue-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#hero" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">첫페이지</a>
+                <a href="#intro" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">소개페이지</a>
+                <a href="#rules" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">규칙페이지</a>
+                <a href="#attraction" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">코어어트랙트 페이지</a>
+                <a href="#gallery" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">갤러리 페이지</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero (첫페이지) -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <!-- Background Overlay / Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544045560-723fcf413dc3?auto=format&fit=crop&q=80&w=1920" 
+                 alt="Baseball Stadium Background" 
+                 class="w-full h-full object-cover object-center scale-105 filter brightness-50"
+                 onerror="this.src='https://placehold.co/1920x1080/0b1d30/ffffff?text=Baseball+Stadium'">
+            <div class="absolute inset-0 bg-gradient-to-t from-deepblue-900 via-deepblue-900/70 to-deepblue-950/90 mix-blend-multiply"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+            <span class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-deepblue-800/80 border border-deepblue-500/30 text-gold-400 text-sm font-semibold mb-6 tracking-wide uppercase animate-pulse">
+                <i class="fa-solid fa-star"></i> <span>각본 없는 드라마의 시작</span>
+            </span>
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight mb-8">
+                <span class="block text-white">열정과 감동의 스포츠</span>
+                <span class="block bg-gradient-to-r from-blue-400 via-teal-300 to-gold-400 bg-clip-text text-transparent mt-2">야구, 그 끝없는 매력</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-base sm:text-xl text-slate-300 leading-relaxed mb-12 font-light">
+                한 치 앞도 알 수 없는 초록 다이아몬드 위에서의 치열한 승부.<br class="hidden sm:inline">
+                단 하나의 공으로 시작되는 드라마틱한 야구의 세계로 당신을 초대합니다.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#intro" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-teal-500 text-white font-bold tracking-wide shadow-lg hover:shadow-teal-500/25 hover:scale-105 transition-all duration-300 text-center">
+                    야구 알아보기 <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#attraction" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-deepblue-800/80 hover:bg-deepblue-700 text-slate-200 hover:text-white font-bold tracking-wide border border-slate-700/50 hover:border-slate-500/50 transition-all duration-300 text-center">
+                    매력 포인트 감상
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 text-slate-400">
+            <span class="text-xs uppercase tracking-widest">Scroll Down</span>
+            <div class="w-6 h-10 border-2 border-slate-500 rounded-full flex justify-center p-1">
+                <div class="w-1.5 h-3 bg-teal-400 rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction (소개페이지) -->
+    <section id="intro" class="relative py-24 sm:py-32 bg-deepblue-900 border-t border-deepblue-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+                <h2 class="text-xs sm:text-sm font-bold text-teal-400 uppercase tracking-widest mb-3">Baseball Introduction</h2>
+                <p class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-6">다이아몬드 위에서 피어나는 열정</p>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 items-center">
+                <!-- Visual Left -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-600 to-teal-500 opacity-25 blur group-hover:opacity-40 transition duration-1000"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-deepblue-950 border border-deepblue-800">
+                        <img src="https://images.unsplash.com/photo-1516731415730-0c6411098145?auto=format&fit=crop&q=80&w=1200" 
+                             alt="Baseball Glove and Ball" 
+                             class="w-full h-[350px] sm:h-[450px] object-cover hover:scale-105 transition-transform duration-700"
+                             onerror="this.src='https://placehold.co/1200x800/0b1d30/ffffff?text=Baseball+Equipment'">
+                        <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-deepblue-950 via-deepblue-950/50 to-transparent">
+                            <span class="text-teal-400 text-sm font-bold uppercase tracking-widest">정의 및 구성</span>
+                            <h3 class="text-xl sm:text-2xl font-bold mt-2">세계에서 가장 사랑받는 구기 종목 중 하나</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Right -->
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xl sm:text-2xl font-extrabold text-white mb-4 flex items-center">
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-sm font-bold mr-3">01</span>
+                            야구(Baseball)란?
+                        </h4>
+                        <p class="text-slate-300 leading-relaxed text-base sm:text-lg pl-11">
+                            야구는 각각 9명(또는 10명)으로 구성된 두 팀이 방망이와 공을 사용하여 겨루는 구기 종목입니다. 공격 팀은 수비 팀이 던지는 공을 받아쳐서 경기장 안의 총 4개의 베이스(루)를 차례로 밟고 홈으로 돌아와 득점(Run)을 기록하는 스포츠입니다.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-deepblue-800 pt-6">
+                        <h4 class="text-xl sm:text-2xl font-extrabold text-white mb-4 flex items-center">
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 text-sm font-bold mr-3">02</span>
+                            독창적인 시간관념
+                        </h4>
+                        <p class="text-slate-300 leading-relaxed text-base sm:text-lg pl-11">
+                            야구는 축구나 농구처럼 물리적인 시간 제한(시계)이 없는 대표적인 스포츠입니다. 정해진 '아웃 카운트'가 다 찰 때까지 경기는 멈추지 않으며, 이로 인해 끝까지 승패를 예단할 수 없다는 독특한 시간적 낭만을 가지고 있습니다.
+                        </p>
+                    </div>
+
+                    <!-- Highlight Box -->
+                    <div class="p-6 rounded-xl bg-deepblue-950 border border-deepblue-800/80 flex items-start space-x-4">
+                        <div class="p-3 bg-gold-400/10 text-gold-400 rounded-lg shrink-0">
+                            <i class="fa-solid fa-quote-left text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-200 font-medium italic">
+                                "끝날 때까지 끝난 게 아니다." (It ain't over till it's over.)
+                            </p>
+                            <span class="block text-xs text-slate-400 mt-2">— 요기 베라 (Yogi Berra)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules (규칙페이지) -->
+    <section id="rules" class="relative py-24 sm:py-32 bg-deepblue-950 border-t border-deepblue-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+                <h2 class="text-xs sm:text-sm font-bold text-blue-400 uppercase tracking-widest mb-3">How to Play</h2>
+                <p class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-6">야구의 핵심 규칙</p>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Rules Responsive Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1: 9 Inning -->
+                <div class="bg-deepblue-900/60 border border-deepblue-800/80 hover:border-blue-500/50 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-clock-rotate-left text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">9이닝 승부</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        경기는 초(공격)와 말(수비)로 구분되는 총 9이닝(회) 동안 진행됩니다. 9회말이 끝날 때까지 더 많은 점수를 얻은 팀이 승리합니다.
+                    </p>
+                </div>
+
+                <!-- Card 2: Strike/Ball -->
+                <div class="bg-deepblue-900/60 border border-deepblue-800/80 hover:border-teal-500/50 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400 mb-6 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-bullseye text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">스트라이크 & 볼</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        투수가 던지는 공이 홈플레이트 상단 규정 구역에 들어오면 스트라이크, 벗어나면 볼이 됩니다. 3스트라이크 시 아웃, 4볼 시 볼넷으로 진루합니다.
+                    </p>
+                </div>
+
+                <!-- Card 3: Out System -->
+                <div class="bg-deepblue-900/60 border border-deepblue-800/80 hover:border-red-500/50 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 mb-6 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-circle-xmark text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">3 아웃 체인지</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        공격팀 타자가 주자로 나가지 못하고 탈락하는 것을 '아웃'이라 합니다. 3개의 아웃 카운트를 채우면 공격과 수비가 교대됩니다.
+                    </p>
+                </div>
+
+                <!-- Card 4: Run Score -->
+                <div class="bg-deepblue-900/60 border border-deepblue-800/80 hover:border-gold-500/50 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center text-gold-400 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-baseball text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">득점(Run) 획득</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        타자가 친 타구를 이용해 1루, 2루, 3루를 모두 통과하여 안전하게 홈플레이트(본루)를 다시 밟는 데 성공하면 1점을 획득합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Attraction (코어어트랙트 페이지) -->
+    <section id="attraction" class="relative py-24 sm:py-32 bg-deepblue-900 border-t border-deepblue-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+                <h2 class="text-xs sm:text-sm font-bold text-gold-400 uppercase tracking-widest mb-3">Core Attractions</h2>
+                <p class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-6">왜 야구에 열광하는가?</p>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Attractions Layout -->
+            <div class="space-y-12 sm:space-y-20">
+                <!-- 1. 각본 없는 드라마 -->
+                <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                    <div class="w-full lg:w-1/2 order-1 lg:order-2">
+                        <div class="relative rounded-2xl overflow-hidden shadow-xl border border-deepblue-800 group">
+                            <img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?auto=format&fit=crop&q=80&w=1200" 
+                                 alt="Baseball batter action" 
+                                 class="w-full h-[300px] sm:h-[400px] object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/1200x800/0b1d30/ffffff?text=Epic+Moment'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/20 to-transparent"></div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 order-2 lg:order-1 space-y-6">
+                        <div class="inline-flex px-3 py-1 rounded-md bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold uppercase tracking-wider">
+                            01. 반전의 묘미
+                        </div>
+                        <h3 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                            각본 없는 9회말 2아웃,<br><span class="text-blue-400">주자 만루의 짜릿함</span>
+                        </h3>
+                        <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
+                            야구에는 시간 제한이 없습니다. 아무리 크게 뒤지고 있더라도 9회말 2아웃 마지막 타자까지 경기는 끝난 것이 아닙니다. 단 한 번의 강력한 스윙, 또는 단 하나의 완벽한 투구로 순식간에 승패가 뒤집히는 끝없는 전율을 선사합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. 예상 못한 도파민 -->
+                <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                    <div class="w-full lg:w-1/2">
+                        <div class="relative rounded-2xl overflow-hidden shadow-xl border border-deepblue-800 group">
+                            <img src="https://images.unsplash.com/photo-1471295268307-f1336c702204?auto=format&fit=crop&q=80&w=1200" 
+                                 alt="Home Run Baseball Stadium" 
+                                 class="w-full h-[300px] sm:h-[400px] object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/1200x800/0b1d30/ffffff?text=Unexpected+Thrill'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/20 to-transparent"></div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 space-y-6">
+                        <div class="inline-flex px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                            02. 짜릿한 카타르시스
+                        </div>
+                        <h3 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                            예상치 못한 순간 터지는<br><span class="text-teal-400">폭발적인 도파민</span>
+                        </h3>
+                        <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
+                            수많은 경우의 수 속에서 정적인 순간을 깨뜨리는 폭발적인 다이내믹! 담장을 가뿐히 넘기는 통쾌한 홈런 한 방, 안타가 될 타구를 공중에서 낚아채는 다이빙 슈퍼 캐치, 150km를 상회하는 강속구의 삼진 쇼 등 야구는 매 이닝 매 순간 도파민을 분출합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. 함께 즐기는 에너지 -->
+                <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                    <div class="w-full lg:w-1/2 order-1 lg:order-2">
+                        <div class="relative rounded-2xl overflow-hidden shadow-xl border border-deepblue-800 group">
+                            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=1200" 
+                                 alt="Cheering Crowd" 
+                                 class="w-full h-[300px] sm:h-[400px] object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/1200x800/0b1d30/ffffff?text=Stadium+Fans'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/20 to-transparent"></div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 order-2 lg:order-1 space-y-6">
+                        <div class="inline-flex px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-bold uppercase tracking-wider">
+                            03. 하나 되는 우리
+                        </div>
+                        <h3 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                            2만 관중의 거대한 함성,<br><span class="text-pink-400">함께 만드는 전율의 에너지</span>
+                        </h3>
+                        <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
+                            야구장은 거대한 축제의 광장입니다. 각 구단과 선수들의 매력적인 응원가에 맞춰 모르는 이들과 어깨동무를 하고 한목소리로 응원하는 순간, 우리는 하나가 됩니다. 맛있는 먹거리와 역동적인 에너지가 가득한 야구장 직관은 인생의 특별한 활력소를 전해줍니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery (갤러리 페이지) -->
+    <section id="gallery" class="relative py-24 sm:py-32 bg-deepblue-950 border-t border-deepblue-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+                <h2 class="text-xs sm:text-sm font-bold text-teal-400 uppercase tracking-widest mb-3">Photo Gallery</h2>
+                <p class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-6">다이아몬드의 생생한 순간들</p>
+                <p class="text-slate-400 text-sm sm:text-base -mt-4">원하는 사진을 클릭하면 크게 보실 수 있습니다.</p>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto rounded-full mt-6"></div>
+            </div>
+
+            <!-- Gallery Grid Layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(0)">
+                    <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?auto=format&fit=crop&q=80&w=800" 
+                         alt="Pitching the ball" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+1'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-teal-400 text-xs font-semibold uppercase tracking-wider mb-1">야구 열정</span>
+                        <h4 class="text-white text-lg font-bold">마운드 위 정밀한 투구의 순간</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(1)">
+                    <img src="https://images.unsplash.com/photo-1480180566821-a7d525cdfc5e?auto=format&fit=crop&q=80&w=800" 
+                         alt="Clean catch with leather glove" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+2'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-blue-400 text-xs font-semibold uppercase tracking-wider mb-1">수비의 미학</span>
+                        <h4 class="text-white text-lg font-bold">안정적인 포구와 깊은 신뢰</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(2)">
+                    <img src="https://images.unsplash.com/photo-1544045560-723fcf413dc3?auto=format&fit=crop&q=80&w=800" 
+                         alt="Baseball stadium empty under lights" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+3'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-gold-400 text-xs font-semibold uppercase tracking-wider mb-1">구장 풍경</span>
+                        <h4 class="text-white text-lg font-bold">노을과 라이트가 공존하는 구장</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(3)">
+                    <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=800" 
+                         alt="Baseball and wooden bat on ground" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+4'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-amber-400 text-xs font-semibold uppercase tracking-wider mb-1">경기 용품</span>
+                        <h4 class="text-white text-lg font-bold">오랜 역사를 간직한 배트와 공</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(4)">
+                    <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?auto=format&fit=crop&q=80&w=800" 
+                         alt="Pitcher ready on mount" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+5'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-purple-400 text-xs font-semibold uppercase tracking-wider mb-1">선수의 시선</span>
+                        <h4 class="text-white text-lg font-bold">승부를 앞두고 집중하는 긴장감</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(5)">
+                    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=800" 
+                         alt="Stadium crowd view" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+6'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-pink-400 text-xs font-semibold uppercase tracking-wider mb-1">관중석의 축제</span>
+                        <h4 class="text-white text-lg font-bold">밤하늘을 화려하게 수놓는 야간 직관</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deepblue-950 text-slate-400 border-t border-deepblue-800/80 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="flex justify-center space-x-6">
+                <a href="#hero" class="hover:text-white transition"><i class="fa-solid fa-house"></i></a>
+                <a href="https://github.com" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+                <a href="https://youtube.com" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <p class="text-sm font-light">
+                © 2026 THE BASEBALL. All Rights Reserved. Designed for Baseball Fans.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal for Gallery -->
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 flex items-center justify-center p-4">
+        <!-- Close button -->
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-slate-300 hover:text-white text-4xl focus:outline-none transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Previous button -->
+        <button onclick="prevImage()" class="absolute left-4 sm:left-8 text-slate-300 hover:text-white text-3xl sm:text-5xl focus:outline-none transition-colors">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- Main Image Container -->
+        <div class="max-w-4xl max-h-[80vh] flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Expanded Baseball Image" class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl">
+            <p id="lightbox-caption" class="text-slate-300 text-center mt-4 text-base sm:text-lg font-medium"></p>
+        </div>
+
+        <!-- Next button -->
+        <button onclick="nextImage()" class="absolute right-4 sm:right-8 text-slate-300 hover:text-white text-3xl sm:text-5xl focus:outline-none transition-colors">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Gallery Images and Captions Data
+        const galleryData = [
+            {
+                url: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?auto=format&fit=crop&q=80&w=1200",
+                caption: "마운드 위 정밀한 투구의 순간"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1480180566821-a7d525cdfc5e?auto=format&fit=crop&q=80&w=1200",
+                caption: "안정적인 포구와 깊은 신뢰"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1544045560-723fcf413dc3?auto=format&fit=crop&q=80&w=1200",
+                caption: "노을과 라이트가 공존하는 구장"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=1200",
+                caption: "오랜 역사를 간직한 배트와 공"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?auto=format&fit=crop&q=80&w=1200",
+                caption: "승부를 앞두고 집중하는 긴장감"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=1200",
+                caption: "밤하늘을 화려하게 수놓는 야간 직관"
+            }
+        ];
+
+        let currentImageIndex = 0;
+
+        // Lightbox open function
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImg.src = galleryData[currentImageIndex].url;
+            lightboxCaption.textContent = galleryData[currentImageIndex].caption;
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Lock background scrolling
+        }
+
+        // Lightbox close function
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Next image logic
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryData.length;
+            updateLightboxContent();
+        }
+
+        // Previous image logic
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryData.length) % galleryData.length;
+            updateLightboxContent();
+        }
+
+        // Helper to update content
+        function updateLightboxContent() {
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            lightboxImg.src = galleryData[currentImageIndex].url;
+            lightboxCaption.textContent = galleryData[currentImageIndex].caption;
+        }
+
+        // Close on background click
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard support for Lightbox
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when links are clicked
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Navbar Solidification on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-deepblue-950');
+                nav.classList.remove('bg-deepblue-950/80');
+            } else {
+                nav.classList.add('bg-deepblue-950/80');
+                nav.classList.remove('bg-deepblue-950');
+            }
+        });
+    </script>
+</body>
+</html>
