@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>야구 규칙 - THE BASEBALL</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepblue: {
+                            50: '#f0f5fa',
+                            100: '#ddebf5',
+                            200: '#c2dcea',
+                            300: '#99c5db',
+                            400: '#68a6ca',
+                            500: '#4689b4',
+                            600: '#346d96',
+                            700: '#2c587a',
+                            800: '#1b364e',
+                            900: '#0b1d30', // Deep Blue Base
+                            950: '#050d18',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #0b1d30;
+            color: #f8fafc;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1d30;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1b364e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4689b4;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden text-slate-100 selection:bg-blue-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-deepblue-950/80 backdrop-blur-md border-b border-deepblue-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#hero" class="flex items-center space-x-2 group">
+                        <i class="fa-solid fa-baseball-bat-ball text-2xl text-gold-400 group-hover:rotate-12 transition-transform duration-300"></i>
+                        <span class="font-extrabold text-xl tracking-wider text-white uppercase">The Baseball</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden md:flex space-x-1 lg:space-x-4">
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">첫페이지</a>
+                    <a href="intro.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">소개페이지</a>
+                    <a href="rules.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">규칙페이지</a>
+                    <a href="team.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">팀 소개페이지</a>
+                    <a href="attraction.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">코어어트랙트 페이지</a>
+                    <a href=""gallery.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">갤러리 페이지</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-deepblue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-deepblue-900 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">메뉴 열기</span>
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-deepblue-900 border-b border-deepblue-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="index.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">첫페이지</a>
+                <a href="intro.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">소개페이지</a>
+                <a href="rules.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">규칙페이지</a>
+                <a href="team.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">팀 소개페이지</a>
+                <a href="attraction.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">코어어트랙트 페이지</a>
+                <a href="gallery.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">갤러리 페이지</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Introduction (소개페이지) -->
+    <section id="intro" class="relative py-24 sm:py-32 bg-deepblue-900 border-t border-deepblue-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+                <h2 class="text-xs sm:text-sm font-bold text-teal-400 uppercase tracking-widest mb-3">Baseball Introduction</h2>
+                <p class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-6">다이아몬드 위에서 피어나는 열정</p>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 items-center">
+                <!-- Visual Left -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-600 to-teal-500 opacity-25 blur group-hover:opacity-40 transition duration-1000"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-deepblue-950 border border-deepblue-800">
+                        <img src="images/intro.jpg" 
+                             alt="Baseball Glove and Ball" 
+                             class="w-full h-[350px] sm:h-[450px] object-cover hover:scale-105 transition-transform duration-700"
+                             onerror="this.src='https://placehold.co/1200x800/0b1d30/ffffff?text=Baseball+Equipment'">
+                        <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-deepblue-950 via-deepblue-950/50 to-transparent">
+                            <span class="text-teal-400 text-sm font-bold uppercase tracking-widest">정의 및 구성</span>
+                            <h3 class="text-xl sm:text-2xl font-bold mt-2">세계에서 가장 사랑받는 구기 종목 중 하나</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Right -->
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xl sm:text-2xl font-extrabold text-white mb-4 flex items-center">
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-sm font-bold mr-3">01</span>
+                            야구(Baseball)란?
+                        </h4>
+                        <p class="text-slate-300 leading-relaxed text-base sm:text-lg pl-11">
+                            야구는 각각 9명(또는 10명)으로 구성된 두 팀이 방망이와 공을 사용하여 겨루는 구기 종목입니다. 공격 팀은 수비 팀이 던지는 공을 받아쳐서 경기장 안의 총 4개의 베이스(루)를 차례로 밟고 홈으로 돌아와 득점(Run)을 기록하는 스포츠입니다.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-deepblue-800 pt-6">
+                        <h4 class="text-xl sm:text-2xl font-extrabold text-white mb-4 flex items-center">
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 text-sm font-bold mr-3">02</span>
+                            독창적인 시간관념
+                        </h4>
+                        <p class="text-slate-300 leading-relaxed text-base sm:text-lg pl-11">
+                            야구는 축구나 농구처럼 물리적인 시간 제한(시계)이 없는 대표적인 스포츠입니다. 정해진 '아웃 카운트'가 다 찰 때까지 경기는 멈추지 않으며, 이로 인해 끝까지 승패를 예단할 수 없다는 독특한 시간적 낭만을 가지고 있습니다.
+                        </p>
+                    </div>
+
+                    <!-- Highlight Box -->
+                    <div class="p-6 rounded-xl bg-deepblue-950 border border-deepblue-800/80 flex items-start space-x-4">
+                        <div class="p-3 bg-gold-400/10 text-gold-400 rounded-lg shrink-0">
+                            <i class="fa-solid fa-quote-left text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-200 font-medium italic">
+                                "끝날 때까지 끝난 게 아니다." (It ain't over till it's over.)
+                            </p>
+                            <span class="block text-xs text-slate-400 mt-2">— 요기 베라 (Yogi Berra)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-deepblue-950 text-slate-400 border-t border-deepblue-800/80 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="flex justify-center space-x-6">
+                <a href="#hero" class="hover:text-white transition"><i class="fa-solid fa-house"></i></a>
+                <a href="https://github.com" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+                <a href="https://youtube.com" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <p class="text-sm font-light">
+                © 2026 THE BASEBALL. All Rights Reserved. Designed for Baseball Fans.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Navbar Solidification on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-deepblue-950');
+                nav.classList.remove('bg-deepblue-950/80');
+            } else {
+                nav.classList.add('bg-deepblue-950/80');
+                nav.classList.remove('bg-deepblue-950');
+            }
+        });
+    </script>
+</body>
+</html>
