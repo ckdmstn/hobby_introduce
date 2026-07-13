@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리 - THE BASEBALL</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepblue: {
+                            50: '#f0f5fa',
+                            100: '#ddebf5',
+                            200: '#c2dcea',
+                            300: '#99c5db',
+                            400: '#68a6ca',
+                            500: '#4689b4',
+                            600: '#346d96',
+                            700: '#2c587a',
+                            800: '#1b364e',
+                            900: '#0b1d30', // Deep Blue Base
+                            950: '#050d18',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #0b1d30;
+            color: #f8fafc;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1d30;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1b364e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4689b4;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden text-slate-100 selection:bg-blue-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-deepblue-950/80 backdrop-blur-md border-b border-deepblue-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2 group">
+                        <i class="fa-solid fa-baseball-bat-ball text-2xl text-gold-400 group-hover:rotate-12 transition-transform duration-300"></i>
+                        <span class="font-extrabold text-xl tracking-wider text-white uppercase">The Baseball</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden md:flex space-x-1 lg:space-x-4">
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">첫페이지</a>
+                    <a href="intro.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">소개페이지</a>
+                    <a href="rules.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">규칙페이지</a>
+                    <a href="team.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">팀 소개페이지</a>
+                    <a href="attraction.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">코어어트랙트 페이지</a>
+                    <a href="gallery.html" class="px-3 py-2 rounded-md text-sm font-semibold tracking-wide text-slate-300 hover:text-white hover:bg-deepblue-800 transition-all duration-200">갤러리 페이지</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-deepblue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-deepblue-900 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">메뉴 열기</span>
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-deepblue-900 border-b border-deepblue-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="index.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">첫페이지</a>
+                <a href="intro.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">소개페이지</a>
+                <a href="rules.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">규칙페이지</a>
+                <a href="team.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">팀 소개페이지</a>
+                <a href="attraction.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">코어어트랙트 페이지</a>
+                <a href="gallery.html" class="mobile-link block px-3 py-3 rounded-md text-base font-semibold text-slate-300 hover:text-white hover:bg-deepblue-800 transition duration-200">갤러리 페이지</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery (갤러리 페이지) -->
+    <section id="gallery" class="relative py-24 sm:py-32 bg-deepblue-950 border-t border-deepblue-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+                <h2 class="text-xs sm:text-sm font-bold text-teal-400 uppercase tracking-widest mb-3">Photo Gallery</h2>
+                <p class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-6">다이아몬드의 생생한 순간들</p>
+                <p class="text-slate-400 text-sm sm:text-base -mt-4">원하는 사진을 클릭하면 크게 보실 수 있습니다.</p>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto rounded-full mt-6"></div>
+            </div>
+
+            <!-- Gallery Grid Layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(0)">
+                    <img src="images/gal3.jpg" 
+                         alt="Pitching the ball" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+1'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-teal-400 text-xs font-semibold uppercase tracking-wider mb-1">야구 열정</span>
+                        <h4 class="text-white text-lg font-bold">글러브에 담긴 약속, 단단하게 거머쥔 승리의 순간</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(1)">
+                    <img src="images/gal1.jpg" 
+                         alt="Clean catch with leather glove" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+2'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-blue-400 text-xs font-semibold uppercase tracking-wider mb-1">수비의 미학</span>
+                        <h4 class="text-white text-lg font-bold">마운드 위 정밀한 투구의 순간</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(2)">
+                    <img src="images/gal2.jpg" 
+                         alt="Baseball stadium empty under lights" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+3'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-gold-400 text-xs font-semibold uppercase tracking-wider mb-1">구장 풍경</span>
+                        <h4 class="text-white text-lg font-bold">찰나의 순간, 승리를 부르는 경쾌한 타격음</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(3)">
+                    <img src="images/gal4.jpeg" 
+                         alt="Baseball and wooden bat on ground" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+4'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-amber-400 text-xs font-semibold uppercase tracking-wider mb-1">경기 용품</span>
+                        <h4 class="text-white text-lg font-bold">NC 다이노스 콜라보 캐릭터 : 도구리</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(4)">
+                    <img src="images/gal5.jpeg" 
+                         alt="Pitcher ready on mount" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+5'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-purple-400 text-xs font-semibold uppercase tracking-wider mb-1">선수의 시선</span>
+                        <h4 class="text-white text-lg font-bold">NC 다이노스 마스코트 : 쎄리</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-deepblue-800/80 cursor-pointer shadow-lg" onclick="openLightbox(5)">
+                    <img src="images/gal6.jpg" 
+                         alt="Stadium crowd view" 
+                         class="w-full h-72 object-cover transform duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Gallery+Image+6'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-pink-400 text-xs font-semibold uppercase tracking-wider mb-1">관중석의 축제</span>
+                        <h4 class="text-white text-lg font-bold">NC 다이노스 마스코트 : 단디</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deepblue-950 text-slate-400 border-t border-deepblue-800/80 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="flex justify-center space-x-6">
+                <a href="index.html" class="hover:text-white transition"><i class="fa-solid fa-house"></i></a>
+                <a href="https://github.com" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+                <a href="https://youtube.com" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <p class="text-sm font-light">
+                © 2026 THE BASEBALL. All Rights Reserved. Designed for Baseball Fans.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal for Gallery -->
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 flex items-center justify-center p-4">
+        <!-- Close button -->
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-slate-300 hover:text-white text-4xl focus:outline-none transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Previous button -->
+        <button onclick="prevImage()" class="absolute left-4 sm:left-8 text-slate-300 hover:text-white text-3xl sm:text-5xl focus:outline-none transition-colors">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- Main Image Container -->
+        <div class="max-w-4xl max-h-[80vh] flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Expanded Baseball Image" class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl">
+            <p id="lightbox-caption" class="text-slate-300 text-center mt-4 text-base sm:text-lg font-medium"></p>
+        </div>
+
+        <!-- Next button -->
+        <button onclick="nextImage()" class="absolute right-4 sm:right-8 text-slate-300 hover:text-white text-3xl sm:text-5xl focus:outline-none transition-colors">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Gallery Images and Captions Data
+        const galleryData = [
+            {
+                url: "images/gal3.jpg",
+                caption: "글러브에 담긴 약속, 단단하게 거머쥔 승리의 순간"
+            },
+            {
+                url: "images/gal1.jpg",
+                caption: "마운드 위 정밀한 투구의 순간"
+            },
+            {
+                url: "images/gal2.jpg",
+                caption: "찰나의 순간, 승리를 부르는 경쾌한 타격음"
+            },
+            {
+                url: "images/gal4.jpeg",
+                caption: "NC 다이노스 콜라보 캐릭터 : 도구리"
+            },
+            {
+                url: "images/gal5.jpeg",
+                caption: "NC 다이노스 마스코트 : 쎄리"
+            },
+            {
+                url: "images/gal6.jpg",
+                caption: "NC 다이노스 마스코트 : 단디"
+            }
+        ];
+
+        let currentImageIndex = 0;
+
+        // Lightbox open function
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImg.src = galleryData[currentImageIndex].url;
+            lightboxCaption.textContent = galleryData[currentImageIndex].caption;
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Lock background scrolling
+        }
+
+        // Lightbox close function
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Next image logic
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryData.length;
+            updateLightboxContent();
+        }
+
+        // Previous image logic
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryData.length) % galleryData.length;
+            updateLightboxContent();
+        }
+
+        // Helper to update content
+        function updateLightboxContent() {
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            lightboxImg.src = galleryData[currentImageIndex].url;
+            lightboxCaption.textContent = galleryData[currentImageIndex].caption;
+        }
+
+        // Close on background click
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard support for Lightbox
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when links are clicked
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Navbar Solidification on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-deepblue-950');
+                nav.classList.remove('bg-deepblue-950/80');
+            } else {
+                nav.classList.add('bg-deepblue-950/80');
+                nav.classList.remove('bg-deepblue-950');
+            }
+        });
+    </script>
+</body>
+</html>
