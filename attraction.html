@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>팀 소개 - THE BASEBALL</title>
+    <title>야구의 매력 - THE BASEBALL</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -110,99 +110,92 @@
         </div>
     </nav>
 
-    <!-- Favorite Team (팀 소개페이지) -->
-    <section id="team" class="relative py-24 sm:py-32 bg-gradient-to-b from-deepblue-950 to-deepblue-900 border-t border-deepblue-800">
+    <!-- Core Attraction (코어어트랙트 페이지) -->
+    <section id="attraction" class="relative py-24 sm:py-32 bg-deepblue-900 border-t border-deepblue-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header -->
             <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
-                <h2 class="text-xs sm:text-sm font-bold text-gold-400 uppercase tracking-widest mb-3">Favorite Team</h2>
-                <p class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-6">창원의 자부심, NC 다이노스</p>
-                <div class="h-1.5 w-16 bg-gradient-to-r from-blue-500 to-gold-400 mx-auto rounded-full"></div>
+                <h2 class="text-xs sm:text-sm font-bold text-gold-400 uppercase tracking-widest mb-3">Core Attractions</h2>
+                <p class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-6">왜 야구에 열광하는가?</p>
+                <div class="h-1.5 w-16 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto rounded-full"></div>
             </div>
 
-            <!-- Team Intro Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <!-- Left Banner Image (Changwon NC Park inspired) -->
-                <div class="lg:col-span-5 relative group">
-                    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-600 to-gold-400 opacity-20 blur group-hover:opacity-35 transition duration-1000"></div>
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-deepblue-950 border border-deepblue-800/80">
-                        <img src="images/nc.jpg"
-                             alt="Modern Baseball Stadium Lights" 
-                             class="w-full h-[320px] sm:h-[420px] object-cover hover:scale-105 transition-transform duration-700"
-                             onerror="this.src='https://placehold.co/800x600/0b1d30/ffffff?text=Changwon+NC+Park'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/40 to-transparent flex flex-col justify-end p-6 sm:p-8">
-                            <span class="text-gold-400 text-xs font-extrabold uppercase tracking-widest">HOME STADIUM</span>
-                            <h3 class="text-xl sm:text-2xl font-black text-white mt-1">메이저리그급 명품 구장<br>창원 NC 파크</h3>
+            <!-- Attractions Layout -->
+            <div class="space-y-12 sm:space-y-20">
+                <!-- 1. 각본 없는 드라마 -->
+                <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                    <div class="w-full lg:w-1/2 order-1 lg:order-2">
+                        <div class="relative rounded-2xl overflow-hidden shadow-xl border border-deepblue-800 group">
+                            <img src="images/core1.jpg" 
+                                 alt="Baseball batter action" 
+                                 class="w-full h-[300px] sm:h-[400px] object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/1200x800/0b1d30/ffffff?text=Epic+Moment'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/20 to-transparent"></div>
                         </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 order-2 lg:order-1 space-y-6">
+                        <div class="inline-flex px-3 py-1 rounded-md bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold uppercase tracking-wider">
+                            01. 반전의 묘미
+                        </div>
+                        <h3 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                            각본 없는 9회말 2아웃,<br><span class="text-blue-400">주자 만루의 짜릿함</span>
+                        </h3>
+                        <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
+                            야구에는 시간 제한이 없습니다. 아무리 크게 뒤지고 있더라도 9회말 2아웃 마지막 타자까지 경기는 끝난 것이 아닙니다. 단 한 번의 강력한 스윙, 또는 단 하나의 완벽한 투구로 순식간에 승패가 뒤집히는 끝없는 전율을 선사합니다.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Right Description Details -->
-                <div class="lg:col-span-7 space-y-8">
-                    <div class="space-y-4">
-                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-gold-400/10 border border-gold-400/30 text-gold-400 text-xs font-bold tracking-wider uppercase">
-                            <i class="fa-solid fa-dragon"></i> <span>거침없이 가자! (Go Dino)</span>
+                <!-- 2. 예상 못한 도파민 -->
+                <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                    <div class="w-full lg:w-1/2">
+                        <div class="relative rounded-2xl overflow-hidden shadow-xl border border-deepblue-800 group">
+                            <img src="images/core2.jpg" 
+                                 alt="Home Run Baseball Stadium" 
+                                 class="w-full h-[300px] sm:h-[400px] object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/1200x800/0b1d30/ffffff?text=Unexpected+Thrill'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/20 to-transparent"></div>
                         </div>
-                        <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">공룡 군단의 멈추지 않는 도전과 열정</h3>
+                    </div>
+                    <div class="w-full lg:w-1/2 space-y-6">
+                        <div class="inline-flex px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                            02. 짜릿한 카타르시스
+                        </div>
+                        <h3 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                            예상치 못한 순간 터지는<br><span class="text-teal-400">폭발적인 도파민</span>
+                        </h3>
                         <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
-                            NC 다이노스는 경상남도 창원시를 연고지로 삼아 2011년 창단된 KBO 리그의 9번째 구단입니다. 젊고 역동적인 에너지를 바탕으로 매 시즌 탄탄한 투타 밸런스와 끈기 있는 플레이를 펼쳐 야구팬들에게 최고의 전율을 선물합니다.
+                            수많은 경우의 수 속에서 정적인 순간을 깨뜨리는 폭발적인 다이내믹! 담장을 가뿐히 넘기는 통쾌한 홈런 한 방, 안타가 될 타구를 공중에서 낚아채는 다이빙 슈퍼 캐치, 150km를 상회하는 강속구의 삼진 쇼 등 야구는 매 이닝 매 순간 도파민을 분출합니다.
                         </p>
                     </div>
+                </div>
 
-                    <!-- Key Stats Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <!-- Stat 1 -->
-                        <div class="p-5 rounded-xl bg-deepblue-900/50 border border-deepblue-800/80 flex items-center space-x-4">
-                            <div class="p-3 bg-blue-500/10 text-blue-400 rounded-lg shrink-0">
-                                <i class="fa-solid fa-trophy text-lg"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-slate-400">통합 우승</span>
-                                <span class="block text-sm font-extrabold text-white mt-0.5">2020년 챔피언</span>
-                            </div>
-                        </div>
-
-                        <!-- Stat 2 -->
-                        <div class="p-5 rounded-xl bg-deepblue-900/50 border border-deepblue-800/80 flex items-center space-x-4">
-                            <div class="p-3 bg-teal-500/10 text-teal-400 rounded-lg shrink-0">
-                                <i class="fa-solid fa-map-location-dot text-lg"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-slate-400">구단 연고</span>
-                                <span class="block text-sm font-extrabold text-white mt-0.5">경상남도 창원시</span>
-                            </div>
-                        </div>
-
-                        <!-- Stat 3 -->
-                        <div class="p-5 rounded-xl bg-deepblue-900/50 border border-deepblue-800/80 flex items-center space-x-4">
-                            <div class="p-3 bg-gold-400/10 text-gold-400 rounded-lg shrink-0">
-                                <i class="fa-solid fa-masks-theater text-lg"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs text-slate-400">공식 마스코트</span>
-                                <span class="block text-sm font-extrabold text-white mt-0.5">단디 & 쎄리</span>
-                            </div>
+                <!-- 3. 함께 즐기는 에너지 -->
+                <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                    <div class="w-full lg:w-1/2 order-1 lg:order-2">
+                        <div class="relative rounded-2xl overflow-hidden shadow-xl border border-deepblue-800 group">
+                            <img src="images/core3.jpg" 
+                                 alt="Cheering Crowd" 
+                                 class="w-full h-[300px] sm:h-[400px] object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/1200x800/0b1d30/ffffff?text=Stadium+Fans'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-deepblue-950 via-deepblue-950/20 to-transparent"></div>
                         </div>
                     </div>
-
-                    <!-- Highlights Info Box -->
-                    <div class="p-6 rounded-2xl bg-deepblue-950/80 border border-deepblue-800 flex flex-col sm:flex-row gap-6 items-start">
-                        <div class="p-4 bg-gradient-to-br from-blue-600 to-teal-500 text-white rounded-xl shadow-lg shrink-0 text-center font-black text-xl sm:text-2xl leading-none w-full sm:w-auto flex sm:flex-col items-center justify-center space-x-2 sm:space-x-0">
-                            <i class="fa-solid fa-wand-magic-sparkles mb-0 sm:mb-2 text-gold-400"></i>
-                            <span>2020</span>
+                    <div class="w-full lg:w-1/2 order-2 lg:order-1 space-y-6">
+                        <div class="inline-flex px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-bold uppercase tracking-wider">
+                            03. 하나 되는 우리
                         </div>
-                        <div>
-                            <h4 class="text-lg font-bold text-white mb-2">화제의 집행검 세리머니</h4>
-                            <p class="text-sm text-slate-400 leading-relaxed">
-                                2020년 한국시리즈 우승 당시, NC소프트의 대표적인 아이템인 '집행검' 모형을 들어 올린 이색적인 우승 세리머니는 전 세계 야구팬들과 MLB 사이에서도 폭발적인 화제를 모으며 구단 역사상 가장 독창적인 순간으로 기록되었습니다.
-                            </p>
-                        </div>
+                        <h3 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                            2만 관중의 거대한 함성,<br><span class="text-pink-400">함께 만드는 전율의 에너지</span>
+                        </h3>
+                        <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
+                            야구장은 거대한 축제의 광장입니다. 각 구단과 선수들의 매력적인 응원가에 맞춰 모르는 이들과 어깨동무를 하고 한목소리로 응원하는 순간, 우리는 하나가 됩니다. 맛있는 먹거리와 역동적인 에너지가 가득한 야구장 직관은 인생의 특별한 활력소를 전해줍니다.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 
     <!-- Footer -->
     <footer class="bg-deepblue-950 text-slate-400 border-t border-deepblue-800/80 py-12">
